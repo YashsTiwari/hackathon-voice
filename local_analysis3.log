@@ -1,0 +1,227 @@
+
+======================================================================
+  DEEP AUDIO FORENSICS ANALYSIS
+  Output: /home/turing/projects/hackathon_task_0/analysis
+======================================================================
+  Real voices found: ['shagun', 'saksham', 'shalini', 'abhishek', 'tarun', 'bhavya', 'sezal', 'yashs', 'harshvardhan']
+  [warn] No real voice found for: abhishek2
+  Total entries: 194
+  Real: 9  Fake: 185
+
+  Found 194 files to analyze
+    chatterbox          : 45 files
+    real                : 9 files
+    xtts                : 45 files
+    xtts_finetune       : 50 files
+    yourtts             : 45 files
+  Running 16 parallel workers on 194 files...
+  OK: bhavya       | xtts            | sent1
+  OK: harshvardhan | xtts            | sent2
+  OK: abhishek     | xtts            | sent5
+  OK: bhavya       | xtts            | sent3
+  OK: harshvardhan | xtts            | sent3
+  OK: abhishek     | xtts            | sent4
+  OK: bhavya       | xtts            | sent4
+  OK: harshvardhan | xtts            | sent1
+  OK: bhavya       | xtts            | sent2
+  OK: bhavya       | xtts            | sent5
+  OK: abhishek     | xtts            | sent3
+  OK: harshvardhan | xtts            | sent4
+  OK: abhishek     | xtts            | sent1
+  OK: abhishek     | xtts            | sent2
+  OK: sezal        | xtts            | sent3
+  OK: saksham      | xtts            | sent2
+  OK: saksham      | xtts            | sent5
+  OK: sezal        | xtts            | sent5
+  OK: sezal        | xtts            | sent2
+  OK: saksham      | xtts            | sent4
+  OK: sezal        | xtts            | sent4
+  OK: sezal        | xtts            | sent1
+  OK: saksham      | xtts            | sent1
+  OK: saksham      | xtts            | sent3
+  OK: harshvardhan | xtts            | sent5
+  OK: shagun       | xtts            | sent1
+  OK: shalini      | xtts            | sent2
+  OK: shagun       | xtts            | sent2
+  OK: shalini      | xtts            | sent4
+  OK: shalini      | xtts            | sent1
+  OK: shagun       | xtts            | sent5
+  OK: shagun       | xtts            | sent4
+  OK: shagun       | xtts            | sent3
+  OK: bhavya       | real            | full
+  OK: shalini      | xtts            | sent3
+  OK: shalini      | xtts            | sent5
+  OK: abhishek     | real            | full
+  OK: yashs        | xtts            | sent1
+  OK: tarun        | xtts            | sent3
+  OK: tarun        | xtts            | sent4
+  OK: yashs        | xtts            | sent3
+  OK: yashs        | xtts            | sent2
+  OK: tarun        | xtts            | sent1
+  OK: tarun        | xtts            | sent2
+  OK: tarun        | xtts            | sent5
+  OK: harshvardhan | real            | full
+  OK: yashs        | xtts            | sent5
+  OK: sezal        | real            | full
+  OK: yashs        | xtts            | sent4
+  OK: saksham      | real            | full
+  OK: bhavya       | yourtts         | sent1
+  OK: bhavya       | yourtts         | sent3
+  OK: abhishek     | yourtts         | sent2
+  OK: abhishek     | yourtts         | sent1
+  OK: bhavya       | yourtts         | sent2
+  OK: abhishek     | yourtts         | sent4
+  OK: bhavya       | yourtts         | sent5
+  OK: harshvardhan | yourtts         | sent2
+  OK: abhishek     | yourtts         | sent3
+  OK: harshvardhan | yourtts         | sent1
+  OK: abhishek     | yourtts         | sent5
+  OK: bhavya       | yourtts         | sent4
+  OK: shagun       | real            | full
+  OK: harshvardhan | yourtts         | sent3
+  OK: harshvardhan | yourtts         | sent5
+  OK: saksham      | yourtts         | sent1
+  OK: harshvardhan | yourtts         | sent4
+  OK: saksham      | yourtts         | sent2
+  OK: saksham      | yourtts         | sent3
+  OK: saksham      | yourtts         | sent4
+  OK: sezal        | yourtts         | sent1
+  OK: sezal        | yourtts         | sent2
+  OK: sezal        | yourtts         | sent4
+  OK: saksham      | yourtts         | sent5
+  OK: tarun        | real            | full
+  OK: sezal        | yourtts         | sent3
+  OK: sezal        | yourtts         | sent5
+  OK: shalini      | real            | full
+  OK: shalini      | yourtts         | sent2
+  OK: shalini      | yourtts         | sent1
+  OK: shagun       | yourtts         | sent3
+  OK: shagun       | yourtts         | sent1
+  OK: shagun       | yourtts         | sent2
+  OK: tarun        | yourtts         | sent2
+  OK: shalini      | yourtts         | sent3
+  OK: shagun       | yourtts         | sent5
+  OK: shalini      | yourtts         | sent4
+  OK: shagun       | yourtts         | sent4
+  OK: yashs        | real            | full
+  OK: tarun        | yourtts         | sent1
+  OK: shalini      | yourtts         | sent5
+  OK: tarun        | yourtts         | sent3
+  OK: tarun        | yourtts         | sent4
+  OK: tarun        | yourtts         | sent5
+  OK: abhishek     | chatterbox      | sent3
+  OK: yashs        | yourtts         | sent5
+  OK: abhishek     | chatterbox      | sent1
+  OK: yashs        | yourtts         | sent3  OK: abhishek     | chatterbox      | sent4
+
+  OK: yashs        | yourtts         | sent2
+  OK: yashs        | yourtts         | sent4
+  OK: abhishek     | chatterbox      | sent2
+  OK: yashs        | yourtts         | sent1
+  OK: bhavya       | chatterbox      | sent1
+  OK: bhavya       | chatterbox      | sent4
+  OK: abhishek     | chatterbox      | sent5
+  OK: harshvardhan | chatterbox      | sent1
+  OK: bhavya       | chatterbox      | sent3
+  OK: harshvardhan | chatterbox      | sent2
+  OK: bhavya       | chatterbox      | sent2
+  OK: saksham      | chatterbox      | sent3
+  OK: harshvardhan | chatterbox      | sent4
+  OK: harshvardhan | chatterbox      | sent5
+  OK: saksham      | chatterbox      | sent5
+  OK: harshvardhan | chatterbox      | sent3
+  OK: bhavya       | chatterbox      | sent5
+  OK: saksham      | chatterbox      | sent4
+  OK: sezal        | chatterbox      | sent1
+  OK: saksham      | chatterbox      | sent1
+  OK: saksham      | chatterbox      | sent2
+  OK: shagun       | chatterbox      | sent1
+  OK: sezal        | chatterbox      | sent5
+  OK: shagun       | chatterbox      | sent2  OK: sezal        | chatterbox      | sent2
+
+  OK: shagun       | chatterbox      | sent3
+  OK: sezal        | chatterbox      | sent4
+  OK: sezal        | chatterbox      | sent3
+  OK: shalini      | chatterbox      | sent2
+  OK: shagun       | chatterbox      | sent4
+  OK: shagun       | chatterbox      | sent5
+  OK: tarun        | chatterbox      | sent1
+  OK: shalini      | chatterbox      | sent5
+  OK: shalini      | chatterbox      | sent4
+  OK: tarun        | chatterbox      | sent2
+  OK: shalini      | chatterbox      | sent1
+  OK: shalini      | chatterbox      | sent3
+  OK: tarun        | chatterbox      | sent4
+  OK: yashs        | chatterbox      | sent1  OK: tarun        | chatterbox      | sent3
+
+  OK: tarun        | chatterbox      | sent5
+  OK: yashs        | chatterbox      | sent4
+  OK: yashs        | chatterbox      | sent5
+  OK: yashs        | chatterbox      | sent3
+  OK: abhishek     | xtts_finetune   | sent3
+  OK: abhishek     | xtts_finetune   | sent2
+  OK: yashs        | chatterbox      | sent2
+  OK: abhishek     | xtts_finetune   | sent1
+  OK: abhishek2    | xtts_finetune   | sent2
+  OK: abhishek2    | xtts_finetune   | sent1
+  OK: abhishek     | xtts_finetune   | sent4
+  OK: abhishek     | xtts_finetune   | sent5
+  OK: abhishek2    | xtts_finetune   | sent4
+  OK: bhavya       | xtts_finetune   | sent1
+  OK: abhishek2    | xtts_finetune   | sent5
+  OK: harshvardhan | xtts_finetune   | sent2
+  OK: abhishek2    | xtts_finetune   | sent3
+  OK: harshvardhan | xtts_finetune   | sent3
+  OK: bhavya       | xtts_finetune   | sent2
+  OK: harshvardhan | xtts_finetune   | sent1
+  OK: bhavya       | xtts_finetune   | sent5
+  OK: bhavya       | xtts_finetune   | sent4
+  OK: bhavya       | xtts_finetune   | sent3
+  OK: harshvardhan | xtts_finetune   | sent4
+  OK: harshvardhan | xtts_finetune   | sent5
+  OK: saksham      | xtts_finetune   | sent2
+  OK: saksham      | xtts_finetune   | sent1
+  OK: saksham      | xtts_finetune   | sent4
+  OK: sezal        | xtts_finetune   | sent1
+  OK: saksham      | xtts_finetune   | sent3
+  OK: sezal        | xtts_finetune   | sent2
+  OK: saksham      | xtts_finetune   | sent5
+  OK: shagun       | xtts_finetune   | sent1
+  OK: shagun       | xtts_finetune   | sent2
+  OK: shagun       | xtts_finetune   | sent4
+  OK: shagun       | xtts_finetune   | sent3
+  OK: sezal        | xtts_finetune   | sent3
+  OK: shagun       | xtts_finetune   | sent5
+  OK: sezal        | xtts_finetune   | sent4
+  OK: sezal        | xtts_finetune   | sent5
+  OK: shalini      | xtts_finetune   | sent2
+  OK: shalini      | xtts_finetune   | sent1
+  OK: tarun        | xtts_finetune   | sent2
+  OK: tarun        | xtts_finetune   | sent1
+  OK: shalini      | xtts_finetune   | sent4
+  OK: shalini      | xtts_finetune   | sent5
+  OK: tarun        | xtts_finetune   | sent3
+  OK: shalini      | xtts_finetune   | sent3
+  OK: tarun        | xtts_finetune   | sent4
+  OK: yashs        | xtts_finetune   | sent1
+  OK: yashs        | xtts_finetune   | sent4
+  OK: tarun        | xtts_finetune   | sent5
+  OK: yashs        | xtts_finetune   | sent2
+  OK: yashs        | xtts_finetune   | sent3
+  OK: yashs        | xtts_finetune   | sent5
+  Done: 194 files in 0.5 min
+
+  Features saved: /home/turing/projects/hackathon_task_0/analysis/features.csv
+  Total rows: 194
+
+  Generating comparison plots...
+Traceback (most recent call last):
+  File "/home/turing/projects/hackathon_task_0/deep_analysis.py", line 1087, in <module>
+    main()
+  File "/home/turing/projects/hackathon_task_0/deep_analysis.py", line 1063, in main
+    plot_comparison(real_audio, fake_audio,
+  File "/home/turing/projects/hackathon_task_0/deep_analysis.py", line 738, in plot_comparison
+    plt.colorbar(ax1.images[0], ax=ax1, format='%+2.0f dB')
+  File "/home/turing/venvs/task0_coqui/lib/python3.10/site-packages/matplotlib/axes/_base.py", line 1514, in __getitem__
+    return [artist
+IndexError: list index out of range

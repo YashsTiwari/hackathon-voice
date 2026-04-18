@@ -1,0 +1,240 @@
+{
+  "phase_variance_std": {
+    "threshold": 0.264177397962984,
+    "direction": ">",
+    "real_mean": 0.2027088122235404,
+    "fake_mean": 0.32564598370242764,
+    "cohens_d": 3.809450685613378
+  },
+  "energy_peaks": {
+    "threshold": 44.35745745745746,
+    "direction": "<",
+    "real_mean": 59.18518518518518,
+    "fake_mean": 29.52972972972973,
+    "cohens_d": 3.7234750272254598
+  },
+  "onset_count": {
+    "threshold": 42.31651651651651,
+    "direction": "<",
+    "real_mean": 53.22222222222221,
+    "fake_mean": 31.410810810810812,
+    "cohens_d": 3.174990217249393
+  },
+  "beat_count": {
+    "threshold": 11.212012012012012,
+    "direction": "<",
+    "real_mean": 14.88888888888889,
+    "fake_mean": 7.535135135135135,
+    "cohens_d": 3.1354727982977746
+  },
+  "noise_floor_std": {
+    "threshold": 0.005699706764530913,
+    "direction": ">",
+    "real_mean": 0.0035421020196129437,
+    "fake_mean": 0.007857311509448883,
+    "cohens_d": 2.2685060415683953
+  },
+  "pause_count": {
+    "threshold": 8.094794794794794,
+    "direction": "<",
+    "real_mean": 10.481481481481481,
+    "fake_mean": 5.708108108108108,
+    "cohens_d": 2.1535079050452084
+  },
+  "spectral_flux_mean": {
+    "threshold": 46.9158842305402,
+    "direction": ">",
+    "real_mean": 36.14243948901141,
+    "fake_mean": 57.68932897206899,
+    "cohens_d": 1.7625120997118893
+  },
+  "spectral_flux_std": {
+    "threshold": 35.809343163315596,
+    "direction": ">",
+    "real_mean": 27.160316891140408,
+    "fake_mean": 44.45836943549079,
+    "cohens_d": 1.7034124792740262
+  },
+  "rms_mean": {
+    "threshold": 0.08963082438368379,
+    "direction": ">",
+    "real_mean": 0.07057472659895812,
+    "fake_mean": 0.10868692216840946,
+    "cohens_d": 1.5374893064969786
+  },
+  "rms_std": {
+    "threshold": 0.0640741739921771,
+    "direction": ">",
+    "real_mean": 0.048902166110497886,
+    "fake_mean": 0.07924618187385632,
+    "cohens_d": 1.561304808232663
+  },
+  "mfcc2_std": {
+    "threshold": 52.21846963082467,
+    "direction": ">",
+    "real_mean": 44.05759804337114,
+    "fake_mean": 60.37934121827821,
+    "cohens_d": 1.4663538796203726
+  },
+  "snr_voiced": {
+    "threshold": 0.12020075280196939,
+    "direction": ">",
+    "real_mean": 0.09284307455850968,
+    "fake_mean": 0.1475584310454291,
+    "cohens_d": 1.514858307313778
+  },
+  "energy_range": {
+    "threshold": 0.32605269448244356,
+    "direction": ">",
+    "real_mean": 0.26333546762665105,
+    "fake_mean": 0.388769921338236,
+    "cohens_d": 1.4723943119669807
+  },
+  "phase_variance_mean": {
+    "threshold": 3.172203847500416,
+    "direction": "<",
+    "real_mean": 3.2744289062641285,
+    "fake_mean": 3.0699787887367043,
+    "cohens_d": 1.3434426865750702
+  },
+  "spectral_flux_max": {
+    "threshold": 155.01267804154404,
+    "direction": ">",
+    "real_mean": 125.30722109476726,
+    "fake_mean": 184.71813498832083,
+    "cohens_d": 1.345599257256642
+  },
+  "breathing_count": {
+    "threshold": 6.881081081081081,
+    "direction": "<",
+    "real_mean": 8.0,
+    "fake_mean": 5.762162162162162,
+    "cohens_d": 1.3436201803154082
+  },
+  "group_delay_mean": {
+    "threshold": 2.090878597406057,
+    "direction": "<",
+    "real_mean": 2.1620741243715638,
+    "fake_mean": 2.01968307044055,
+    "cohens_d": 1.2464398731502062
+  },
+  "group_delay_std": {
+    "threshold": 2.250271218889827,
+    "direction": "<",
+    "real_mean": 2.2934730317857532,
+    "fake_mean": 2.2070694059939,
+    "cohens_d": 1.1918525111019318
+  },
+  "inst_freq_mean": {
+    "threshold": 1.523175117740402,
+    "direction": "<",
+    "real_mean": 1.5691371891233659,
+    "fake_mean": 1.4772130463574384,
+    "cohens_d": 1.223780684662152
+  },
+  "inst_freq_std": {
+    "threshold": 1.79173083243308,
+    "direction": "<",
+    "real_mean": 1.8200014211513376,
+    "fake_mean": 1.7634602437148224,
+    "cohens_d": 1.175466172438784
+  },
+  "ioi_mean": {
+    "threshold": 0.1395674459839549,
+    "direction": "<",
+    "real_mean": 0.1520833259867634,
+    "fake_mean": 0.1270515659811464,
+    "cohens_d": 1.2150025229505503
+  },
+  "f2_mean": {
+    "threshold": 1799.643909103166,
+    "direction": ">",
+    "real_mean": 1723.67324108653,
+    "fake_mean": 1875.6145771198019,
+    "cohens_d": 1.0653248121649552
+  },
+  "centroid_std": {
+    "threshold": 918.2852511534148,
+    "direction": ">",
+    "real_mean": 765.9098649429848,
+    "fake_mean": 1070.660637363845,
+    "cohens_d": 1.1993470213638027
+  },
+  "zcr_std": {
+    "threshold": 0.09434576882448889,
+    "direction": ">",
+    "real_mean": 0.0745315216690122,
+    "fake_mean": 0.11416001597996558,
+    "cohens_d": 1.1830972325761318
+  },
+  "rhythm_regularity": {
+    "threshold": 9.04261267300764,
+    "direction": ">",
+    "real_mean": 7.439212252170754,
+    "fake_mean": 10.646013093844529,
+    "cohens_d": 1.252216606367881
+  },
+  "envelope_smoothness": {
+    "threshold": 180.8680228209121,
+    "direction": "<",
+    "real_mean": 255.06325657927542,
+    "fake_mean": 106.67278906254879,
+    "cohens_d": 1.28622774175642
+  },
+  "f0_complexity": {
+    "threshold": 2682.6424614560765,
+    "direction": "<",
+    "real_mean": 3702.752142632643,
+    "fake_mean": 1662.5327802795098,
+    "cohens_d": 1.471316556661708
+  },
+  "rolloff_std": {
+    "threshold": 1584.9514965780895,
+    "direction": ">",
+    "real_mean": 1428.410534409225,
+    "fake_mean": 1741.4924587469538,
+    "cohens_d": 1.0761340344921981
+  },
+  "mfcc_delta_std": {
+    "threshold": 4.664762192660266,
+    "direction": ">",
+    "real_mean": 4.20390428437127,
+    "fake_mean": 5.125620100949262,
+    "cohens_d": 1.020231158253266
+  },
+  "ioi_std": {
+    "threshold": 0.1283002461868885,
+    "direction": "<",
+    "real_mean": 0.15113002036690049,
+    "fake_mean": 0.10547047200687651,
+    "cohens_d": 1.224718868721691
+  },
+  "mfcc1_std": {
+    "threshold": 100.90834270244365,
+    "direction": ">",
+    "real_mean": 78.3307093867549,
+    "fake_mean": 123.48597601813239,
+    "cohens_d": 1.2775855648783463
+  },
+  "zcr_mean": {
+    "threshold": 0.110542768095645,
+    "direction": ">",
+    "real_mean": 0.09353147306606902,
+    "fake_mean": 0.127554063125221,
+    "cohens_d": 1.0277681592361703
+  },
+  "ioi_cv": {
+    "threshold": 0.8900609580428156,
+    "direction": "<",
+    "real_mean": 0.9697087245608943,
+    "fake_mean": 0.8104131915247369,
+    "cohens_d": 1.024402022422619
+  },
+  "noise_spectral_centroid_std": {
+    "threshold": 818.8475662837652,
+    "direction": ">",
+    "real_mean": 647.8522341387326,
+    "fake_mean": 989.8428984287979,
+    "cohens_d": 1.2140566985702206
+  }
+}
