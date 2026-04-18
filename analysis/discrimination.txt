@@ -1,0 +1,86 @@
+================================================================================
+  FEATURE DISCRIMINATION REPORT
+  Real vs Fake — Cohen's d effect size + consistency across systems
+================================================================================
+
+Feature                                      Real     Fake  Cohen_d  Consist    Threshold
+────────────────────────────────────────────────────────────────────────────────
+phase_variance_std                          0.203    0.326    3.809    0.922 >      0.264  ★ HARDCODE
+energy_peaks                               59.185   29.530    3.723    0.906 <     44.357  ★ HARDCODE
+onset_count                                53.222   31.411    3.175    0.916 <     42.317  ★ HARDCODE
+beat_count                                 14.889    7.535    3.135    0.856 <     11.212  ★ HARDCODE
+noise_floor_std                             0.004    0.008    2.269    0.862 >      0.006  ★ HARDCODE
+pause_count                                10.481    5.708    2.154    0.779 <      8.095  ★ HARDCODE
+spectral_flux_mean                         36.142   57.689    1.763    0.919 >     46.916  ★ HARDCODE
+spectral_flux_std                          27.160   44.458    1.703    0.884 >     35.809  ★ HARDCODE
+rms_mean                                    0.071    0.109    1.537    0.914 >      0.090  ★ HARDCODE
+rms_std                                     0.049    0.079    1.561    0.874 >      0.064  ★ HARDCODE
+mfcc2_std                                  44.058   60.379    1.466    0.925 >     52.218  ★ HARDCODE
+snr_voiced                                  0.093    0.148    1.515    0.894 >      0.120  ★ HARDCODE
+energy_range                                0.263    0.389    1.472    0.890 >      0.326  ★ HARDCODE
+phase_variance_mean                         3.274    3.070    1.343    0.932 <      3.172  ★ HARDCODE
+spectral_flux_max                         125.307  184.718    1.346    0.890 >    155.013  ★ HARDCODE
+breathing_count                             8.000    5.762    1.344    0.889 <      6.881  ★ HARDCODE
+group_delay_mean                            2.162    2.020    1.246    0.926 <      2.091  ★ HARDCODE
+group_delay_std                             2.293    2.207    1.192    0.959 <      2.250  ★ HARDCODE
+inst_freq_mean                              1.569    1.477    1.224    0.930 <      1.523  ★ HARDCODE
+inst_freq_std                               1.820    1.763    1.175    0.962 <      1.792  ★ HARDCODE
+ioi_mean                                    0.152    0.127    1.215    0.910 <      0.140  ★ HARDCODE
+f2_mean                                  1723.673 1875.615    1.065    0.979 >   1799.644  ★ HARDCODE
+centroid_std                              765.910 1070.661    1.199    0.863 >    918.285  ★ HARDCODE
+zcr_std                                     0.075    0.114    1.183    0.872 >      0.094  ★ HARDCODE
+rhythm_regularity                           7.439   10.646    1.252    0.812 >      9.043  ★ HARDCODE
+envelope_smoothness                       255.063  106.673    1.286    0.784 <    180.868  ★ HARDCODE
+f0_complexity                            3702.752 1662.533    1.471    0.679 <   2682.642  ★ HARDCODE
+rolloff_std                              1428.411 1741.492    1.076    0.906 >   1584.951  ★ HARDCODE
+mfcc_delta_std                              4.204    5.126    1.020    0.944 >      4.665  ★ HARDCODE
+ioi_std                                     0.151    0.105    1.225    0.786 <      0.128  ★ HARDCODE
+mfcc1_std                                  78.331  123.486    1.278    0.745 >    100.908  ★ HARDCODE
+f3_mean                                  2789.879 3003.546    0.977    0.962 >   2896.713  
+zcr_mean                                    0.094    0.128    1.028    0.891 >      0.111  ★ HARDCODE
+ioi_cv                                      0.970    0.810    1.024    0.871 <      0.890  ★ HARDCODE
+f1_mean                                   597.973  677.159    0.944    0.937 >    637.566  
+entropy_4_8k                                8.775    8.634    0.890    0.988 <      8.704  
+noise_spectral_centroid_std               647.852  989.843    1.214    0.724 >    818.848  ★ HARDCODE
+mfcc4_std                                  25.705   30.443    0.874    0.937 >     28.074  
+f1_std                                    296.016  392.728    0.856    0.910 >    344.372  
+noise_floor_cv                              0.561    0.973    0.999    0.739 >      0.767  
+
+  Features suitable for hardcoding (Cohen's d > 1.0, consistency > 0.5):
+  34 features identified
+
+  phase_variance_std: >0.2642  (real=0.203, fake=0.326, d=3.81)
+  energy_peaks: <44.3575  (real=59.185, fake=29.530, d=3.72)
+  onset_count: <42.3165  (real=53.222, fake=31.411, d=3.17)
+  beat_count: <11.2120  (real=14.889, fake=7.535, d=3.14)
+  noise_floor_std: >0.0057  (real=0.004, fake=0.008, d=2.27)
+  pause_count: <8.0948  (real=10.481, fake=5.708, d=2.15)
+  spectral_flux_mean: >46.9159  (real=36.142, fake=57.689, d=1.76)
+  spectral_flux_std: >35.8093  (real=27.160, fake=44.458, d=1.70)
+  rms_mean: >0.0896  (real=0.071, fake=0.109, d=1.54)
+  rms_std: >0.0641  (real=0.049, fake=0.079, d=1.56)
+  mfcc2_std: >52.2185  (real=44.058, fake=60.379, d=1.47)
+  snr_voiced: >0.1202  (real=0.093, fake=0.148, d=1.51)
+  energy_range: >0.3261  (real=0.263, fake=0.389, d=1.47)
+  phase_variance_mean: <3.1722  (real=3.274, fake=3.070, d=1.34)
+  spectral_flux_max: >155.0127  (real=125.307, fake=184.718, d=1.35)
+  breathing_count: <6.8811  (real=8.000, fake=5.762, d=1.34)
+  group_delay_mean: <2.0909  (real=2.162, fake=2.020, d=1.25)
+  group_delay_std: <2.2503  (real=2.293, fake=2.207, d=1.19)
+  inst_freq_mean: <1.5232  (real=1.569, fake=1.477, d=1.22)
+  inst_freq_std: <1.7917  (real=1.820, fake=1.763, d=1.18)
+  ioi_mean: <0.1396  (real=0.152, fake=0.127, d=1.22)
+  f2_mean: >1799.6439  (real=1723.673, fake=1875.615, d=1.07)
+  centroid_std: >918.2853  (real=765.910, fake=1070.661, d=1.20)
+  zcr_std: >0.0943  (real=0.075, fake=0.114, d=1.18)
+  rhythm_regularity: >9.0426  (real=7.439, fake=10.646, d=1.25)
+  envelope_smoothness: <180.8680  (real=255.063, fake=106.673, d=1.29)
+  f0_complexity: <2682.6425  (real=3702.752, fake=1662.533, d=1.47)
+  rolloff_std: >1584.9515  (real=1428.411, fake=1741.492, d=1.08)
+  mfcc_delta_std: >4.6648  (real=4.204, fake=5.126, d=1.02)
+  ioi_std: <0.1283  (real=0.151, fake=0.105, d=1.22)
+  mfcc1_std: >100.9083  (real=78.331, fake=123.486, d=1.28)
+  zcr_mean: >0.1105  (real=0.094, fake=0.128, d=1.03)
+  ioi_cv: <0.8901  (real=0.970, fake=0.810, d=1.02)
+  noise_spectral_centroid_std: >818.8476  (real=647.852, fake=989.843, d=1.21)
+================================================================================
