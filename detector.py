@@ -2,13 +2,11 @@
 detector.py — Voice Deepfake Detector
 ══════════════════════════════════════════════════════════════════════
 4-layer ensemble detector:
-  Layer 1: Hardcoded thresholds (insurance — universal signals)
+  Layer 1: Hyperparams thresholds (universal signals)
   Layer 2: XGBoost on 138 hand-crafted features (trained on our data)
   Layer 3: AASIST pretrained (state-of-art neural anti-spoofing)
-  Layer 4: Watermark check (catches our own cloner with ~100% certainty)
 
 Final score = weighted ensemble of all layers
-Watermark detection overrides everything → FAKE if found
 
 Usage:
     from detector import VoiceDetector
@@ -44,16 +42,11 @@ MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
 SR = 16000
 
-# ── Watermark config ───────────────────────────────────────────────
-WATERMARK_FREQ      = 7823   # Hz — injected into our clones
-WATERMARK_AMPLITUDE = 0.0003
-WATERMARK_THRESHOLD = 0.0002
-
 
 # ══════════════════════════════════════════════════════════════════
-# LAYER 1: HARDCODED THRESHOLDS
-# These are filled from analysis/hardcode_thresholds.json
-# Defaults below are educated guesses — replaced after analysis runs
+# LAYER 1: Hyperparametering THRESHOLDS
+# These are filled from analysis/hyperparameter_thresholds.json
+# Defaults below -- replaced after analysis runs
 # ══════════════════════════════════════════════════════════════════
 
 # Default thresholds (placeholders — will be overridden from JSON)
@@ -159,7 +152,7 @@ def load_thresholds() -> dict:
         return DEFAULT_THRESHOLDS
 
 
-def hardcoded_check(features: dict, thresholds: dict) -> tuple[float, list[str]]:
+def hyperparams_check(features: dict, thresholds: dict) -> tuple[float, list[str]]:
     """
     Layer 1: Rule-based threshold check.
     Returns (score 0-1, list of triggered signals)
@@ -372,39 +365,6 @@ def aasist_predict(audio: np.ndarray, model, sr: int = 16000) -> float:
         print(f"  AASIST inference error: {e}")
         return 0.5
 
-
-# ══════════════════════════════════════════════════════════════════
-# LAYER 4: WATERMARK DETECTION
-# ══════════════════════════════════════════════════════════════════
-
-def detect_watermark(audio: np.ndarray, sr: int = SR) -> tuple[bool, float]:
-    """
-    ~7823Hz tone at amplitude 0.0003.
-    """
-    fft     = np.abs(np.fft.rfft(audio))
-    freqs   = np.fft.rfftfreq(len(audio), 1/sr)
-    idx     = np.argmin(np.abs(freqs - WATERMARK_FREQ))
-
-    # Energy in narrow band around marker frequency (±5 bins)
-    band_energy   = np.mean(fft[max(0,idx-5):idx+6])
-    # Compare to nearby background
-    bg_energy     = np.mean(np.concatenate([
-        fft[max(0,idx-50):max(0,idx-10)],
-        fft[idx+10:idx+50]
-    ]))
-    snr           = band_energy / (bg_energy + 1e-10)
-    found         = snr > 3.0  # 3x above background = watermark present
-    confidence    = min(1.0, (snr - 1.0) / 5.0) if snr > 1.0 else 0.0
-
-    return found, float(confidence)
-
-
-def inject_watermark(audio: np.ndarray, sr: int = SR) -> np.ndarray:
-    t      = np.arange(len(audio)) / sr
-    marker = WATERMARK_AMPLITUDE * np.sin(2 * np.pi * WATERMARK_FREQ * t)
-    return audio + marker.astype(audio.dtype)
-
-
 # ══════════════════════════════════════════════════════════════════
 # FEATURE EXTRACTION (calls deep_analysis functions)
 # ══════════════════════════════════════════════════════════════════
@@ -484,10 +444,9 @@ class VoiceDetector:
 
     # Ensemble weights — tunable
     WEIGHTS = {
-        "hardcoded": 0.10,
+        "hyperparams": 0.10,
         "xgboost":   0.65,
         "aasist":    0.20,
-        "watermark": 0.05,  # small weight — overrides via flag instead
     }
 
     def __init__(self, verbose: bool = True):
@@ -512,28 +471,11 @@ class VoiceDetector:
         # Load audio
         audio = load_audio_for_inference(audio_path)
 
-        # ── Layer 4: Watermark check (fast, do first) ──────────────
-        wm_found, wm_conf = detect_watermark(audio)
-        if wm_found:
-            return {
-                "label":      "fake",
-                "confidence": float(0.99),
-                "verdict":    "FAKE — our watermark detected",
-                "signals":    ["watermark_detected"],
-                "scores": {
-                    "watermark": float(wm_conf),
-                    "hardcoded": None,
-                    "xgboost":   None,
-                    "aasist":    None,
-                },
-                "elapsed": time.time() - t0,
-            }
-
         # ── Extract features (shared by layers 1 and 2) ────────────
         features = extract_features_for_inference(audio)
 
-        # ── Layer 1: Hardcoded thresholds ─────────────────────────
-        hc_score, signals = hardcoded_check(features, self.thresholds)
+        # ── Layer 1: hyperparams thresholds ─────────────────────────
+        hc_score, signals = hyperparams_check(features, self.thresholds)
 
         # ── Layer 2: XGBoost ──────────────────────────────────────
         xgb_score = xgboost_predict(features, self.xgb_model)
@@ -545,16 +487,16 @@ class VoiceDetector:
         # Adjust weights based on what's available
         w = self.WEIGHTS.copy()
         if self.xgb_model is None:
-            w["hardcoded"] += w["xgboost"]
+            w["hyperparams"] += w["xgboost"]
             w["xgboost"]   = 0
         if self.aasist is None:
-            w["hardcoded"] += w["aasist"] * 0.5
+            w["hyperparams"] += w["aasist"] * 0.5
             w["xgboost"]   += w["aasist"] * 0.5
             w["aasist"]     = 0
 
-        total_w = w["hardcoded"] + w["xgboost"] + w["aasist"]
+        total_w = w["hyperparams"] + w["xgboost"] + w["aasist"]
         ensemble_score = (
-            w["hardcoded"] * hc_score +
+            w["hyperparams"] * hc_score +
             w["xgboost"]   * xgb_score +
             w["aasist"]    * aasist_score
         ) / (total_w + 1e-10)
@@ -585,10 +527,9 @@ class VoiceDetector:
             "signals":    signals,
             "scores": {
                 "ensemble":  float(ensemble_score),
-                "hardcoded": float(hc_score),
+                "hyperparams": float(hc_score),
                 "xgboost":   float(xgb_score),
                 "aasist":    float(aasist_score),
-                "watermark": 0.0,
             },
             "top_features": {
                 k: float(features.get(k, 0))
