@@ -1,0 +1,19 @@
+
+======================================================================
+  DEEP AUDIO FORENSICS ANALYSIS
+  Output: /home/turing/projects/hackathon_task_0/analysis
+======================================================================
+  Real voices found: ['shagun', 'saksham', 'shalini', 'abhishek', 'tarun', 'bhavya', 'sezal', 'yashs', 'harshvardhan']
+  [warn] No real voice found for: abhishek2
+  Total entries: 194
+  Real: 9  Fake: 185
+
+  Found 194 files to analyze
+    chatterbox          : 45 files
+    real                : 9 files
+    xtts                : 45 files
+    xtts_finetune       : 50 files
+    yourtts             : 45 files
+
+  Resuming — 50 remaining
+  Running 16 parallel workers on 50 files...

@@ -409,26 +409,43 @@ def inject_watermark(audio: np.ndarray, sr: int = SR) -> np.ndarray:
 # FEATURE EXTRACTION (calls deep_analysis functions)
 # ══════════════════════════════════════════════════════════════════
 
-def extract_features_for_inference(audio: np.ndarray,
-                                    sr: int = SR) -> dict:
+def extract_features_for_inference(audio: np.ndarray, sr: int = SR) -> dict:
     """
-    Extract all 138 features for inference.
-    Imports from deep_analysis.py.
+    Extract all features for inference.
+    Bridges the gap between NumPy-based loading and GPU-based PyTorch extraction.
     """
     try:
-        # Try to import from deep_analysis
         sys.path.insert(0, str(DETECTOR_DIR))
         import deep_analysis as da
+        import torch
+
+        # 1. Convert the NumPy array to a PyTorch Tensor and push to GPU
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        audio_tensor = torch.from_numpy(audio).to(device)
+
         feats = {}
-        feats.update(da.extract_spectral(audio))
-        feats.update(da.extract_phase(audio))
-        feats.update(da.extract_prosody(audio))
-        feats.update(da.extract_noise(audio))
-        feats.update(da.extract_temporal(audio))
-        feats.update(da.extract_crossdomain(audio))
+
+        # 2. Pass the TENSOR to the PyTorch-accelerated functions
+        feats.update(da.extract_spectral(audio_tensor))
+        feats.update(da.extract_phase(audio_tensor))
+        feats.update(da.extract_noise(audio_tensor))
+
+        # 3. Pass the original NUMPY ARRAY to the CPU-bound functions
+        # (Parselmouth/Praat will crash if you feed it a GPU Tensor)
+        feats.update(da.extract_prosody_cpu(audio))
+        
+        if hasattr(da, 'extract_temporal'):
+            feats.update(da.extract_temporal(audio))
+            
+        if hasattr(da, 'extract_crossdomain'):
+            feats.update(da.extract_crossdomain(audio))
+
         return feats
+        
     except Exception as e:
         print(f"  Feature extraction error: {e}")
+        import traceback
+        traceback.print_exc()  # This will print exactly where it fails if it happens again
         return {}
 
 
@@ -455,7 +472,6 @@ def load_audio_for_inference(path: str, sr: int = SR,
     if peak > 0:
         audio = audio / peak
     return audio
-
 
 # ══════════════════════════════════════════════════════════════════
 # MAIN DETECTOR CLASS
