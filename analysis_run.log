@@ -1,0 +1,24 @@
+
+======================================================================
+  DEEP AUDIO FORENSICS ANALYSIS
+  Output: /scratch/s25089/voice_analysis/analysis
+======================================================================
+  Real voices found: ['shagun', 'saksham', 'shalini', 'abhishek', 'tarun', 'bhavya', 'sezal', 'yashs', 'harshvardhan']
+  Total entries: 144
+  Real: 9  Fake: 135
+
+  Found 144 files to analyze
+    chatterbox          : 45 files
+    real                : 9 files
+    xtts                : 45 files
+    yourtts             : 45 files
+  [1/144] abhishek     | xtts            | sent1 ... OK (235s total)
+  [2/144] abhishek     | xtts            | sent2 ... OK (364s total)
+  [3/144] abhishek     | xtts            | sent3 ... OK (500s total)
+  [4/144] abhishek     | xtts            | sent4 ... OK (640s total)
+  [5/144] abhishek     | xtts            | sent5 ... OK (769s total)
+  [6/144] abhishek     | real            | full ... OK (1173s total)
+  [7/144] bhavya       | xtts            | sent1 ... OK (1305s total)
+  [8/144] bhavya       | xtts            | sent2 ... OK (1447s total)
+  [9/144] bhavya       | xtts            | sent3 ... OK (1583s total)
+  [10/144] bhavya       | xtts            | sent4 ... 
